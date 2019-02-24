@@ -10,9 +10,11 @@ namespace ChefsDishes.Models
     public int DishId { get; set; }
     [Required]
     public string Name { get; set; }
+    [Range(1,10)]
     public int Tastiness { get; set; }
+    [Range(0, int.MaxValue)]
     public int Calories { get; set; }
-    [Required]
+    [Required, MinLength(4)]
     public string Description { get; set; }
     public int ChefId { get; set; }
     public DateTime CreatedAt { get; set; } = DateTime.Now;
@@ -24,5 +26,10 @@ namespace ChefsDishes.Models
     // form property for selecting chef associated with Dish
     [NotMapped]
     public List<Chef> Chefs { get; set; }
+    public Dish() { }
+    public Dish(List<Chef> chefs)
+    {
+      Chefs = chefs;
+    }
   }
 }

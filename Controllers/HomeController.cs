@@ -17,8 +17,7 @@ namespace ChefsDishes.Controllers
       _dbContext = context;
     }
 
-    [Route("")]
-    [HttpGet]
+    [HttpGet("")]
     public IActionResult Chefs()
     {
       List<Chef> AllChefs = _dbContext.Chefs
@@ -27,8 +26,7 @@ namespace ChefsDishes.Controllers
       return View(AllChefs);
     }
 
-    [Route("dishes")]
-    [HttpGet]
+    [HttpGet("dishes")]
     public IActionResult Dishes()
     {
       List<Dish> AllDishes = _dbContext.Dishes
@@ -46,7 +44,7 @@ namespace ChefsDishes.Controllers
     [HttpGet("newdish")]
     public IActionResult NewDish()
     {
-      return View(BuildDishForm());
+      return View(new Dish(_dbContext.Chefs.ToList()));
     }
 
     [HttpPost("chef")]
