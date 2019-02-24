@@ -1,0 +1,14 @@
+@model Chef
+
+<form asp-action="CreateChef" asp-controller="Home" method="POST">
+  <label for="FirstName">First Name:</label>
+  <input asp-for="FirstName">
+  <br>
+  <label for="LastName">Last Name:</label>
+  <input asp-for="LastName">
+  <br>
+  <label for="DoB">Date of Birth:</label>
+  <input asp-for="DoB">
+  <br>
+  <button>Add Chef</button>
+</form>
